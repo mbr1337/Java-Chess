@@ -1,0 +1,7 @@
+module:javachess.javachessfx
+javachess.javachessfx
+javachess.javachessfx.backend
+javachess.javachessfx.backend.pieces
+javachess.javachessfx.exceptions
+javachess.javachessfx.window
+javachess.javachessfx.window.util

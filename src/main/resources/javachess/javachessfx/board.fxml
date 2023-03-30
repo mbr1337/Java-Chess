@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javachess.javachessfx.window.GameController">
+   <AnchorPane fx:id="configPane" prefHeight="200.0" prefWidth="200.0">
+      <children>
+         <Spinner fx:id="minutes" editable="true" layoutX="525.0" layoutY="240.0" />
+         <Spinner fx:id="seconds" editable="true" layoutX="525.0" layoutY="291.0" />
+         <Label layoutX="379.0" layoutY="244.0" text="Minuty" />
+         <Label layoutX="379.0" layoutY="295.0" text="Sekundy" />
+         <Label layoutX="413.0" layoutY="182.0" text="Proszę podać czas gry">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label layoutX="324.0" layoutY="355.0" prefHeight="67.0" prefWidth="355.0" text="Tutaj należy wprowadzić zapis szachowy (wybrać - &quot;Wczytaj grę&quot; lub upuścic plik .txt), następnie naciśnąć &quot;Rozpocznij grę&quot;. Jeśli chcesz rozpocząć nową grę, naciśnij &quot;Rozpocznij grę&quot;." textAlignment="CENTER" wrapText="true" />
+         <Button layoutX="552.0" layoutY="749.0" mnemonicParsing="false" onMouseClicked="#changePane" prefHeight="49.0" prefWidth="134.0" text="Rozpocznij grę">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Button>
+         <Label fx:id="errorLabel" alignment="CENTER" layoutX="342.0" layoutY="662.0" prefHeight="67.0" prefWidth="318.0" text="Błędy" textAlignment="CENTER" textFill="#d34c4c" visible="false" wrapText="true">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Button layoutX="317.0" layoutY="749.0" mnemonicParsing="false" onMouseClicked="#chooseFile" prefHeight="49.0" prefWidth="134.0" text="Wczytaj grę">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Button>
+         <Label fx:id="dragAndDropSave" alignment="CENTER" layoutX="317.0" layoutY="456.0" prefHeight="194.0" prefWidth="369.0" style="-fx-background-color: #a6a6a6;" text="Tutaj upuść plik z zapisaną grą">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+    <BorderPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" visible="false" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+        <center>
+            <Pane fx:id="chessboard" prefHeight="800.0" prefWidth="800.0" rotate="180.0" BorderPane.alignment="CENTER" />
+        </center>
+        <right>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #b7bec7;" BorderPane.alignment="CENTER">
+                <children>
+                    <Label text="Czarne - czas">
+                        <font>
+                            <Font name="System Bold" size="22.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="blackTime" text="00:00">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <Label text="Białe - czas">
+                        <font>
+                            <Font name="System Bold" size="22.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="whiteTime" text="00:00">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+                    <HBox alignment="CENTER" prefHeight="42.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                            <Button mnemonicParsing="false" onMouseClicked="#save" text="Zapisz" />
+                        </children>
+                        <VBox.margin>
+                            <Insets />
+                        </VBox.margin>
+                    </HBox>
+                </children>
+            </VBox>
+        </right>
+        <top>
+            <HBox fx:id="deadWhitePieces" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #b7bec7;" BorderPane.alignment="CENTER" />
+        </top>
+        <bottom>
+            <HBox fx:id="deadBlackPieces" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #b7bec7;" BorderPane.alignment="CENTER" />
+        </bottom>
+    </BorderPane>
+</StackPane>
